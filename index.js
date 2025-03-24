@@ -2,10 +2,10 @@ import dotenv from 'dotenv'
 import TelegramBot from 'node-telegram-bot-api'
 import express from 'express'
 
-dotenv.config()
+const { error, parsed } = dotenv.config({ path: '/home/team-pulse-bot/.env' })
 
-const token = process.env.TELEGRAM_BOT_TOKEN
-const port = process.env.PORT
+const token = parsed.TELEGRAM_BOT_TOKEN
+const port = parsed.PORT
 
 const bot = new TelegramBot(token, { polling: true })
 
